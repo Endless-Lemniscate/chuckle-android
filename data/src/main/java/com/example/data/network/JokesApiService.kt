@@ -6,14 +6,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
+
 const val BASE_URL = "https://api.icndb.com/"
 
 interface JokesApiService {
 
-    // http://api.icndb.com/jokes/random
     @GET("jokes/random/{num}")
     suspend fun getRandomJokes(@Path("num") num: Int): JsonElement
-
 
     companion object {
         private val gson = GsonBuilder()
