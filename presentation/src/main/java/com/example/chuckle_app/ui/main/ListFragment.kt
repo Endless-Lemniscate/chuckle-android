@@ -1,9 +1,11 @@
 package com.example.chuckle_app.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -29,12 +31,12 @@ class ListFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProvider(activity as AppCompatActivity, listViewModelFactory).get(
-            ListViewModel::class.java)
+                ListViewModel::class.java)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_list, container, false)
@@ -48,8 +50,15 @@ class ListFragment : Fragment() {
             adapter = recyclerAdapter
         }
 
+        fun View.hideKeyboard() {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(windowToken, 0)
+        }
+
         view.submit_button.setOnClickListener {
             viewModel.getJokes(view.num.text.toString().toInt())
+            view.num.clearFocus()
+            view.num.hideKeyboard()
         }
 
         return view
