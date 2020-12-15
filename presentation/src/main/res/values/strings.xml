@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">chuckle-app</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  About screen  -->
+    <string name="cd_just_random_image">just random image</string>
+    <string name="about_app">О приложении</string>
+    <string name="about_screen1">Тестовое приложение</string>
+    <string name="developer">Разработчик:</string>
+    <string name="developer_name">Шишкин Геннадий</string>
+    <string name="developer_email">Email: Endless-Lemniscate@yandex.ru</string>
+    <string name="developer_phone">Телефон: +7(981)744–06–19</string>
+    <string name="developer_telegram">Telegram: @Endless_Lemniscate</string>
+</resources>
